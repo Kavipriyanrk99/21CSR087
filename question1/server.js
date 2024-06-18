@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const { logger } = require('./middlewares/logEvents');
 const { errHandler } = require('./middlewares/errHandler');
 const cookieParser = require('cookie-parser');
-const { connectDB } = require('./configs/dbConnection');
+const { connectDB } = require('../configs/dbConnection');
 
 
 const PORT = process.env.PORT || 5500; 
@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-app.use('/numbers', require('./question1/routes/numbers'));
+app.use('/numbers', require('./routes/numbers'));
 
 
 
